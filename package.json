@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ryopple/FrontendTraining/issues"
   },
-  "homepage": "https://github.com/ryopple/FrontendTraining#readme"
+  "homepage": "https://github.com/ryopple/FrontendTraining#readme",
+  "devDependencies": {
+    "webpack": "^5.61.0",
+    "webpack-cli": "^4.9.1"
+  }
 }
