@@ -1,14 +1,16 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const outputPath = path.resolve(__dirname, 'dist');
+
 module.exports = {
   entry: path.resolve(__dirname, 'src/ts/app.ts'), // バンドルの起点となるファイル
   output: {
-    path: path.resolve(__dirname, 'dist'), // 出力されるディレクトリ
+    path: outputPath, // 出力されるディレクトリ
     filename: 'bundle.js', // 出力されるファイル名
   },
   resolve: {
-    extensions: ['.ts'],
+    extensions: ['.js', '.ts'],
     modules: [path.resolve(__dirname, 'src'), 'node_modules'],
   },
   module: {
@@ -38,5 +40,9 @@ module.exports = {
       template: path.resolve(__dirname, 'src/index.html'),
     }),
   ],
+  devServer: {
+    static: outputPath,
+    open: true,
+  },
   devtool: 'source-map', // ソースマップファイルの出力
 };
