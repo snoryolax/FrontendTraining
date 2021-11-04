@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/ts/app.ts'), // バンドルの起点となるファイル
@@ -19,5 +20,11 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    // html-webpack-plugin
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/index.html'),
+    }),
+  ],
   devtool: 'source-map', // ソースマップファイルの出力
 };
