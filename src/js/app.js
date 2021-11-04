@@ -1,5 +1,6 @@
-import animals from './animals';
-import { Dog } from './animals';
+import getAnimals from './animals';
+import { Animals, Dog } from './animals';
 
-console.log(animals);
+console.log(getAnimals());
+console.log(Animals);
 console.log(Dog);

@@ -6,5 +6,14 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'), // 出力されるディレクトリ
     filename: 'bundle.js', // 出力されるファイル名
   },
+  module: {
+    rules: [
+      // babel-loader
+      {
+        test: /\.js$/,
+        use: 'babel-loader',
+      },
+    ],
+  },
   devtool: 'source-map', // ソースマップファイルの出力
 };
