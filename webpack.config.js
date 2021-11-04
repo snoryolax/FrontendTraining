@@ -13,10 +13,22 @@ module.exports = {
   },
   module: {
     rules: [
-      // babel-loader
       {
+        // babel-loader
         test: /\.ts$/,
         use: 'babel-loader',
+      },
+      {
+        // sass-loader, css-loader, style-loader
+        test: /\.(sa|sc|c)ss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { url: false },
+          },
+          'sass-loader',
+        ],
       },
     ],
   },
