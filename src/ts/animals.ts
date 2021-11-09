@@ -5,7 +5,7 @@ const getRandomElement = (list: string[]): string => {
     return list[Math.floor(Math.random() * list.length)]
 }
 
-console.log(getRandomElement(animals);
+console.log(getRandomElement(animals))
 
 export default getRandomElement
 export const Animals = animals
