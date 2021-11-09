@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc --noEmit && webpack --mode development",
-    "build": "tsc --noEmit && webpack --mode production",
-    "start": "tsc --noEmit && webpack serve --mode development",
+    "dev": "tsc --noEmit && eslint \"./src/**/*.ts\" --ext ts --fix && prettier \"./src/**/*.ts\" --write && webpack serve --mode development",
+    "build": "tsc --noEmit && eslint \"./src/**/*.ts\" --ext ts --fix && prettier \"./src/**/*.ts\" --write && webpack --mode production",
     "lint": "eslint \"./src/**/*.ts\" --ext ts",
     "fix": "eslint \"./src/**/*.ts\" --ext ts --fix",
     "prettier": "prettier \"./src/**/*.ts\" --write"

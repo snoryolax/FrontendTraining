@@ -43,7 +43,11 @@ module.exports = {
     }),
   ],
   devServer: {
-    static: outputPath,
+    static: {
+      directory: outputPath,
+    },
+    watchFiles: ['src/**/*'],
+    liveReload: true,
     open: true,
   },
 };
