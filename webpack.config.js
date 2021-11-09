@@ -1,13 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const outputPath = path.resolve(__dirname, 'dist');
+const outputPath = path.resolve(__dirname, 'dist'); // 出力されるディレクトリ
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/ts/app.ts'), // バンドルの起点となるファイル
+  entry: path.resolve(__dirname, 'src/ts/app.ts'),
   output: {
-    path: outputPath, // 出力されるディレクトリ
-    filename: 'bundle.js', // 出力されるファイル名
+    path: outputPath,
+    filename: 'bundle.js',
   },
   resolve: {
     extensions: ['.js', '.ts'],
@@ -21,12 +21,10 @@ module.exports = {
         loader: "eslint-loader",
       },
       {
-        // babel-loader
         test: /\.ts$/,
         use: 'babel-loader',
       },
       {
-        // sass-loader, css-loader, style-loader
         test: /\.(sa|sc|c)ss$/,
         use: [
           'style-loader',
@@ -40,7 +38,6 @@ module.exports = {
     ],
   },
   plugins: [
-    // html-webpack-plugin
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
     }),
@@ -49,5 +46,4 @@ module.exports = {
     static: outputPath,
     open: true,
   },
-  devtool: 'source-map', // ソースマップファイルの出力
 };
