@@ -2,7 +2,7 @@ const animals: string[] = ['dog', 'cat', 'elephant', 'panda', 'camel']
 const dog: string[] = ['Shiba', 'Collie', 'Corgi', 'Schnauzer', 'Chihuahua']
 
 const getRandomElement = (list: string[]): string => {
-    return list[Math.floor(Math.random() * list.length)]
+  return list[Math.floor(Math.random() * list.length)]
 }
 
 console.log(getRandomElement(animals))

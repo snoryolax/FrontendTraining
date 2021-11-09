@@ -1,7 +1,7 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const outputPath = path.resolve(__dirname, 'dist'); // 出力されるディレクトリ
+const outputPath = path.resolve(__dirname, 'dist') // 出力されるディレクトリ
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/ts/app.ts'),
@@ -16,9 +16,9 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.ts$/,
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
       },
       {
         test: /\.ts$/,
@@ -50,4 +50,4 @@ module.exports = {
     liveReload: true,
     open: true,
   },
-};
+}
