@@ -16,6 +16,11 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: "pre",
+        test: /\.ts$/,
+        loader: "eslint-loader",
+      },
+      {
         // babel-loader
         test: /\.ts$/,
         use: 'babel-loader',
