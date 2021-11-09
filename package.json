@@ -9,7 +9,8 @@
     "build": "tsc --noEmit && webpack --mode production",
     "start": "tsc --noEmit && webpack serve --mode development",
     "lint": "eslint . --ext ts",
-    "fix": "eslint . --ext ts --fix"
+    "fix": "eslint . --ext ts --fix",
+    "prettier": "prettier . --write"
   },
   "repository": {
     "type": "git",
