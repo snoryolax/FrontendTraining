@@ -15,7 +15,7 @@ npm run dev
 ```
 
 - TypeScript の型チェック
-- src 配下の.ts ファイルへの整形、静的解析
+- src 配下のファイルへの整形、静的解析
 - バンドル
 
 ```
@@ -26,7 +26,3 @@ npm run build
 
 - main ブランチへの push で自動デプロイ。
 - デプロイ先：https://ryopple.github.io/FrontendTraining/
-
-## その他
-
-- .editorconfig 配置済み
