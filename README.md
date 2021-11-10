@@ -24,5 +24,11 @@ npm run build
 
 ## デプロイ
 
-- main ブランチへの push で自動デプロイ。
+- main ブランチへの push で自動デプロイ
 - デプロイ先：https://ryopple.github.io/FrontendTraining/
+
+## その他
+
+- VSCode 推奨
+  - Extension で Prettier・ESLint のインストール推奨
+  - リポジトリをワークスペースとして開けば、formatOnSave で Prettier が走る
