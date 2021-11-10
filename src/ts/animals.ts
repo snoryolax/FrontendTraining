@@ -1,4 +1,4 @@
-const animals: number[] = ['dog', 'cat', 'elephant', 'panda', 'camel']
+const animals: string[] = ['dog', 'cat', 'elephant', 'panda', 'camel']
 const dog: string[] = ['Shiba', 'Collie', 'Corgi', 'Schnauzer', 'Chihuahua']
 
 const getRandomElement = (list: string[]): string => {
