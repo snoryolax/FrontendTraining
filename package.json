@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --mode development",
-    "build": "tsc --noEmit && prettier \"./src/**/*.ts\" --write && eslint \"./src/**/*.ts\" --ext ts --fix && webpack --mode production",
+    "build": "tsc --noEmit && prettier \"./src/**/**.{html,ts,scss}\" --write && eslint \"./src/**/*.ts\" --ext ts --fix && webpack --mode production",
     "lint": "eslint \"./src/**/*.ts\" --ext ts",
     "fix": "eslint \"./src/**/*.ts\" --ext ts --fix",
     "format": "prettier \"./src/**/*.ts\" --write"
