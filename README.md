@@ -22,6 +22,20 @@ npm run dev
 npm run build
 ```
 
+- TypeScript の型チェック
+- src 配下のファイルへの整形、静的解析
+
+```
+npm run check
+```
+
+- デプロイ
+- （GitHub Actions で実行）
+
+```
+nom run deploy
+```
+
 ## デプロイ
 
 - main ブランチへの push で自動デプロイ
