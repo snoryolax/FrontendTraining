@@ -15,7 +15,7 @@ npm run dev
 ```
 
 - TypeScript の型チェック
-- src 配下のファイルへの整形、静的解析
+- src 配下のファイルの整形、静的解析
 - バンドル
 
 ```
@@ -23,7 +23,7 @@ npm run build
 ```
 
 - TypeScript の型チェック
-- src 配下のファイルへの整形、静的解析
+- src 配下のファイルの整形、静的解析
 
 ```
 npm run check
