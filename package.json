@@ -7,7 +7,22 @@
     "dev": "webpack serve --mode development",
     "build": "tsc --noEmit && prettier \"./src/**/**.{html,js,ts,css,scss,json,md,yaml,yml}\" --write && eslint \"./src/**/**.ts\" --ext ts --fix && webpack --mode production",
     "check": "tsc --noEmit && prettier \"./src/**/**.{html,js,ts,css,scss,json,md,yaml,yml}\" --write && eslint \"./src/**/**.ts\" --ext ts --fix",
-    "deploy": "webpack --mode production"
+    "deploy": "webpack --mode production",
+    "format": "prettier \"./src/**/**.{html,js,ts,css,scss,json,md,yaml,yml}\" --write",
+    "lint": "eslint \"./src/**/**.ts\" --ext ts --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{html,js,ts,css,scss,json,md,yaml,yml}": [
+      "npm run format"
+    ],
+    "*.{ts}": [
+      "npm run lint"
+    ]
   },
   "repository": {
     "type": "git",
@@ -36,6 +51,8 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.1",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
     "node-sass": "^6.0.1",
     "prettier": "^2.4.1",
     "sass-loader": "^12.3.0",
