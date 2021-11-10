@@ -8,7 +8,7 @@
 
 ## コマンド
 
-- ファイルの監視、ホットリロード
+- ファイルの監視、ライブリロード
 
 ```
 npm run dev
@@ -20,7 +20,7 @@ npm run dev
 - （GitHub Actions で実行）
 
 ```
-nom run build
+npm run build
 ```
 
 ## デプロイ
