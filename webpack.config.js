@@ -35,9 +35,6 @@ module.exports = {
         // Sassに含まれる画像を出力
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',
-        // generator: {
-        //   filename: './assets/images/[name]-[contenthash].[ext]',
-        // },
       },
     ],
   },
