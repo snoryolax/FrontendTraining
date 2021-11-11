@@ -33,7 +33,7 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [require('autoprefixer')],
+                plugins: [require('autoprefixer')({ grid: true })],
               },
             },
           },

@@ -1,5 +1,6 @@
 h1 {
   color: black;
+  transform: rotate(45deg);
   &::after {
     content: '';
     display: block;
