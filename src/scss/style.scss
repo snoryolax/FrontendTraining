@@ -1,3 +1,10 @@
 h1 {
   color: black;
+  &::after {
+    content: '';
+    display: block;
+    width: 150px;
+    height: 150px;
+    background-image: url(../img/150x150.png);
+  }
 }

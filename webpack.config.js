@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: outputPath,
     filename: 'bundle.js', // 出力するバンドルのファイル名
+    assetModuleFilename: '[name][ext][query]', // 画像をバンドルせずに出力する際のファイル名
   },
   resolve: {
     extensions: ['.js', '.ts'], // 省略する拡張子
@@ -22,19 +23,18 @@ module.exports = {
         use: 'babel-loader',
       },
       {
-        // CSSをHTMLのインラインに展開する
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [
-          // CSS→CommonJS
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: { url: false },
-          },
-          // Sass→CSS
-          'sass-loader',
+          'style-loader', // CSSをHTMLのインラインに展開する
+          'css-loader', // CSS→CommonJS
+          'sass-loader', // Sass→CSS
         ],
+      },
+      {
+        // Sassに含まれる画像を
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        type: 'asset/resource',
       },
     ],
   },
