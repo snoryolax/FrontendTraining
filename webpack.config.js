@@ -8,7 +8,7 @@ module.exports = {
   output: {
     path: outputPath,
     filename: 'bundle.js', // 出力するバンドルのファイル名
-    assetModuleFilename: '[name][ext][query]', // 画像をバンドルせずに出力する際のファイル名
+    assetModuleFilename: './assets/img/[name]-[contenthash][ext]', // 画像をバンドルせずに出力する際のファイル名
   },
   resolve: {
     extensions: ['.js', '.ts'], // 省略する拡張子
@@ -32,9 +32,12 @@ module.exports = {
         ],
       },
       {
-        // Sassに含まれる画像を
+        // Sassに含まれる画像を出力
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
         type: 'asset/resource',
+        // generator: {
+        //   filename: './assets/images/[name]-[contenthash].[ext]',
+        // },
       },
     ],
   },
