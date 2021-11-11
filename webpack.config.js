@@ -28,6 +28,15 @@ module.exports = {
         use: [
           'style-loader', // CSSをHTMLのインラインに展開する
           'css-loader', // CSS→CommonJS
+          {
+            // CSSにVendor Prefixを追加する
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [require('autoprefixer')],
+              },
+            },
+          },
           'sass-loader', // Sass→CSS
         ],
       },
