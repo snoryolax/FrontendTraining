@@ -1,13 +1,1 @@
-@use '/src/scss/base/reset';
-@use 'variable' as var;
-
-h1 {
-  color: var.$font-black;
-  &::after {
-    content: '';
-    display: block;
-    width: 150px;
-    height: 150px;
-    background-image: url(../img/150x150.png);
-  }
-}
+@use 'index';
