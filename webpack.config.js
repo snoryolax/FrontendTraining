@@ -47,8 +47,13 @@ module.exports = {
         ],
       },
       {
-        // Sassに含まれる画像を出力
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        // HTMLのソースコードをwebpackで処理できる形式に変換する
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        // 画像を出力
+        test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
       },
     ],
