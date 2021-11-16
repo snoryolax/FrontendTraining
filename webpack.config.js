@@ -62,6 +62,7 @@ module.exports = {
     // src配下のindex.htmlをbundle.jsを読み込ませる記述を追加してdist配下に生成する
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
+      favicon: './src/favicon.ico',
     }),
   ],
   devServer: {
