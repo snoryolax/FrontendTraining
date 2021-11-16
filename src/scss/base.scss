@@ -1,0 +1,22 @@
+@use 'variable' as var;
+
+html {
+  font-size: 62.5%;
+  line-height: 1.15;
+  body {
+    width: 100%;
+    color: var.$font-black;
+    font-family: 'A+EqpB-游明朝体 Pr6N L', serif;
+  }
+}
+
+a {
+  color: var.$font-blue;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var.$font-orange;
+  transition: color 0.1s;
+}

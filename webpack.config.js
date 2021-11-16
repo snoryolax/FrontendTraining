@@ -47,8 +47,13 @@ module.exports = {
         ],
       },
       {
-        // Sassに含まれる画像を出力
-        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/,
+        // HTMLのソースコードをwebpackで処理できる形式に変換する
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
+      {
+        // 画像を出力
+        test: /\.(png|jpe?g|gif|svg)$/,
         type: 'asset/resource',
       },
     ],
@@ -57,6 +62,7 @@ module.exports = {
     // src配下のindex.htmlをbundle.jsを読み込ませる記述を追加してdist配下に生成する
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'src/index.html'),
+      favicon: './src/favicon.ico',
     }),
   ],
   devServer: {
