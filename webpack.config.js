@@ -37,7 +37,13 @@ module.exports = {
               },
             },
           },
-          'sass-loader', // Sass→CSS
+          {
+            // Sass→CSS
+            loader: 'sass-loader',
+            options: {
+              implementation: require('sass'),
+            },
+          },
         ],
       },
       {

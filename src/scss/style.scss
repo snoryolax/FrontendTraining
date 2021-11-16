@@ -1,6 +1,8 @@
+// @import 'variable';
+@use 'variable' as var;
+
 h1 {
-  color: black;
-  transform: rotate(45deg);
+  color: var.$font-black;
   &::after {
     content: '';
     display: block;
