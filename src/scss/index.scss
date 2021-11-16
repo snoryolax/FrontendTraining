@@ -1,2 +1,22 @@
 @use '/src/scss/base/reset';
+@use 'base';
 @use 'variable' as var;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  .container {
+    .top-index {
+      margin: 11.2rem auto;
+      .image-index-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .page-links {
+      }
+    }
+  }
+}
