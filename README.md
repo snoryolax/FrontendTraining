@@ -36,5 +36,11 @@ npm run build
 ## その他
 
 - VSCode 推奨
+
   - Extension で Prettier・ESLint のインストール推奨
   - リポジトリをワークスペースとして開けば、formatOnSave で Prettier が走る
+
+- ブランチ構成
+  - main: 作業、開発用ブランチ
+  - review: Pull Request の merge 先ブランチ
+  - gh-pages: デプロイ用ブランチ
