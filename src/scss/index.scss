@@ -9,38 +9,36 @@
   justify-content: space-between;
   min-height: 100vh;
   .container {
-    .top {
-      &-index {
+    .hero {
+      &-wrapper {
         width: 85vw;
         margin: 11.2rem auto;
-        .image-index-container {
+      }
+      &-image-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        .block {
           display: flex;
-          flex-wrap: wrap;
-          margin: 0 -2vw;
-          .split {
-            display: flex;
-            justify-content: flex-end;
-            flex-shrink: 0;
-            width: 40vw;
-            margin: 0 2vw;
-          }
+          justify-content: center;
+          flex-shrink: 0;
+          width: 40vw;
+          margin: 0 2vw;
+          margin-bottom: 5.6rem;
           .entry {
             flex-shrink: 0;
             margin-bottom: 5.6rem;
-            &.H {
+            &.single {
               width: 40vw;
-              figure {
-                height: 30vw;
-              }
             }
-            &.V {
+            &.double {
               width: 18vw;
               &:nth-child(2) {
                 margin-left: 4vw;
               }
-              figure {
-                height: 30vw;
-              }
+            }
+            figure {
+              height: 30vw;
             }
             a {
               line-height: 1.5;
@@ -64,21 +62,41 @@
             }
           }
         }
-        .page-links {
-          margin-top: 5.6rem;
-          font-size: 1.8rem;
-          display: flex;
-          justify-content: center;
-          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
-          font-size: 1.6rem;
-          line-height: 2;
-          letter-spacing: 0.04em;
-          a {
-            display: block;
-            margin: 0 2vw;
-          }
+      }
+      &-link-container {
+        display: flex;
+        justify-content: center;
+        font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+        font-size: 1.8rem;
+        line-height: 2;
+        letter-spacing: 0.04em;
+        margin-top: 5.6rem;
+        a {
+          display: block;
+          margin: 0 2vw;
         }
       }
+    }
+    .gallery {
+      &-wrapper {
+      }
+      &-container {
+      }
+    }
+    .about {
+      &-wrapper {
+      }
+      &-container {
+      }
+    }
+    .hyge-talk {
+      &-wrapper {
+      }
+      &-container {
+      }
+    }
+
+    .top {
       &-about {
         display: flex;
         justify-content: space-between;
