@@ -65,6 +65,20 @@
             }
           }
         }
+        .page-links {
+          margin-top: 5.6rem;
+          font-size: 1.8rem;
+          display: flex;
+          justify-content: center;
+          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+          font-size: 1.6rem;
+          line-height: 2;
+          letter-spacing: 0.04em;
+          a {
+            display: block;
+            margin: 0 2vw;
+          }
+        }
       }
       &-about {
       }
