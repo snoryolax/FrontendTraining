@@ -159,4 +159,64 @@
       }
     }
   }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: auto;
+    border-top: 0.5px solid #a4a4a4;
+    line-height: 1.5;
+    font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    padding: 0 8.7rem 1.3rem;
+
+    .nav-wrapper {
+      display: flex;
+      width: 100%;
+      height: 13rem;
+      padding: 5.6rem 0;
+      .nav-main {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 41.4rem;
+        li {
+          width: 15.2rem;
+          font-size: 1.6rem;
+          line-height: 2;
+          a {
+            color: #333;
+            opacity: 0.7;
+          }
+        }
+      }
+      .nav-sub {
+        .top {
+          width: 15.2rem;
+          line-height: 2;
+        }
+        a {
+          color: #333;
+          opacity: 0.7;
+        }
+      }
+    }
+    .copy {
+      opacity: 0.7;
+    }
+    .sns-links {
+      ul {
+        display: flex;
+        li {
+          margin-left: 2rem;
+          a {
+            color: #333;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
 }
