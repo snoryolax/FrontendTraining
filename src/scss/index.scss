@@ -11,6 +11,10 @@
   .container {
     .hero {
       &-wrapper {
+      }
+    }
+    .gallery {
+      &-wrapper {
         width: 85vw;
         margin: 11.2rem auto;
       }
@@ -75,12 +79,6 @@
           display: block;
           margin: 0 2vw;
         }
-      }
-    }
-    .gallery {
-      &-wrapper {
-      }
-      &-container {
       }
     }
     .about {
