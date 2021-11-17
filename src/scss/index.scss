@@ -9,41 +9,224 @@
   justify-content: space-between;
   min-height: 100vh;
   .container {
-    .top-index {
-      margin: 11.2rem auto;
-      .image-index-container {
-        display: flex;
-        flex-wrap: wrap;
-      }
-      .page-links {
+    .hero {
+      &-wrapper {
       }
     }
-    .top-about {
-      display: flex;
-      justify-content: space-between;
-      padding: 11.2rem;
-      border-top: 0.5px solid var.$border-gray;
-      .column {
-        &:nth-child(2) {
-          width: 50vw;
+    .gallery {
+      &-wrapper {
+        width: 85vw;
+        margin: 11.2rem auto;
+      }
+      &-image-container {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: center;
+        .block {
+          display: flex;
+          justify-content: center;
+          flex-shrink: 0;
+          width: 40vw;
+          margin: 0 2vw;
+          margin-bottom: 5.6rem;
+          .entry {
+            flex-shrink: 0;
+            margin-bottom: 5.6rem;
+            &.single {
+              width: 40vw;
+            }
+            &.double {
+              width: 18vw;
+              &:nth-child(2) {
+                margin-left: 4vw;
+              }
+            }
+            a {
+              line-height: 1.5;
+              color: var.$font-black;
+              figure {
+                height: 30vw;
+                img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+              }
+              h3 {
+                margin-top: 2.8rem;
+                font-size: 2rem;
+              }
+              h4 {
+                margin-top: 0.6rem;
+                font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R',
+                  sans-serif;
+                font-size: 1.2rem;
+                color: rgba(51, 51, 51, 0.5);
+              }
+            }
+          }
         }
       }
-      h2 {
-        font-size: 3.6rem;
-      }
-      p {
-        font-size: 2rem;
-        line-height: 2;
-        letter-spacing: 0.14em;
-        font-feature-settings: 'palt';
-      }
-      a {
-        display: inline-block;
-        margin-top: 1.1rem;
+      &-link-container {
+        display: flex;
+        justify-content: center;
         font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
-        font-size: 1.6rem;
-        line-height: 1.25;
+        font-size: 1.8rem;
+        line-height: 2;
         letter-spacing: 0.04em;
+        margin-top: 5.6rem;
+        a {
+          display: block;
+          margin: 0 2vw;
+        }
+      }
+    }
+    .about {
+      &-wrapper {
+        // width: 85vw;
+        // margin: 11.2rem auto;
+        padding: 11.2rem 7.5vw;
+        border-top: 0.5px solid var.$border-gray;
+      }
+      &-message-container {
+        display: flex;
+        justify-content: space-between;
+        .block {
+          &:nth-child(2) {
+            width: 49vw;
+          }
+          h2 {
+            font-size: 3.6rem;
+            line-height: 1.5;
+            letter-spacing: 0.04em;
+          }
+          p {
+            font-size: 2rem;
+            line-height: 2;
+            letter-spacing: 0.14em;
+          }
+          a {
+            display: inline-block;
+            font-size: 1.6rem;
+            font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R',
+              sans-serif;
+            line-height: 1.25;
+            letter-spacing: 0.04em;
+            margin-top: 1.1rem;
+          }
+        }
+      }
+    }
+    .hyge-talk {
+      &-wrapper {
+        position: relative;
+        padding: 11.2rem 7.5vw;
+        border-top: 0.5px solid var.$border-gray;
+      }
+      &-header-container {
+        h2 {
+          font-size: 1.6rem;
+          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+          line-height: 1.25;
+          letter-spacing: 0.04em;
+        }
+        .link-index {
+          position: absolute;
+          top: 11.2rem;
+          right: 6vw;
+          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+          font-size: 1.6rem;
+          letter-spacing: 0.04em;
+        }
+      }
+      &-link-container {
+        margin-top: 5.6rem;
+        ul {
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: center;
+          li {
+            width: 18vw;
+            margin: 0 2vw 11.2rem;
+            .title {
+              margin-top: 2.8rem;
+              font-size: 2rem;
+              font-weight: 300;
+              letter-spacing: 0.06em;
+              line-height: 1.5;
+            }
+            a {
+              display: block;
+              color: #333;
+              white-space: normal;
+              figure {
+                img {
+                  width: 100%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: auto;
+    border-top: 0.5px solid #a4a4a4;
+    line-height: 1.5;
+    font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    padding: 0 8.7rem 1.3rem;
+
+    .nav-wrapper {
+      display: flex;
+      width: 100%;
+      height: 13rem;
+      padding: 5.6rem 0;
+      .nav-main {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: stretch;
+        width: 41.4rem;
+        li {
+          width: 15.2rem;
+          font-size: 1.6rem;
+          line-height: 2;
+          a {
+            color: #333;
+            opacity: 0.7;
+          }
+        }
+      }
+      .nav-sub {
+        .top {
+          width: 15.2rem;
+          line-height: 2;
+        }
+        a {
+          color: #333;
+          opacity: 0.7;
+        }
+      }
+    }
+    .copy {
+      opacity: 0.7;
+    }
+    .sns-links {
+      ul {
+        display: flex;
+        li {
+          margin-left: 2rem;
+          a {
+            color: #333;
+            opacity: 0.7;
+          }
+        }
       }
     }
   }
