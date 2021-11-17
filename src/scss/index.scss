@@ -11,6 +11,60 @@
   .container {
     .top {
       &-index {
+        width: 85vw;
+        margin: 11.2rem auto;
+        .image-index-container {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 -2vw;
+          .split {
+            display: flex;
+            justify-content: flex-end;
+            flex-shrink: 0;
+            width: 40vw;
+            margin: 0 2vw;
+          }
+          .entry {
+            flex-shrink: 0;
+            margin-bottom: 5.6rem;
+            &.H {
+              width: 40vw;
+              figure {
+                height: 30vw;
+              }
+            }
+            &.V {
+              width: 18vw;
+              &:nth-child(2) {
+                margin-left: 4vw;
+              }
+              figure {
+                height: 30vw;
+              }
+            }
+            a {
+              line-height: 1.5;
+              color: var.$font-black;
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            h3 {
+              transition: color 0.5s;
+              margin-top: 2.8rem;
+              font-size: 2rem;
+            }
+            h4 {
+              margin-top: 0.6rem;
+              font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R',
+                sans-serif;
+              font-size: 1.2rem;
+              color: rgba(51, 51, 51, 0.5);
+            }
+          }
+        }
       }
       &-about {
       }
