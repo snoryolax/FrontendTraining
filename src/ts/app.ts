@@ -1,7 +1,7 @@
-/* eslint no-unused-vars: 0 */
 import slideshow from './slideshow'
-import '../scss/style.scss'
 
-window.onload = () => {
+const Slideshow = (window.onload = () => {
   slideshow(8000)
-}
+})
+
+export default Slideshow

@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const outputPath = path.resolve(__dirname, 'dist') // 出力されるディレクトリ
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/ts/app.ts'), // エントリーポイント
+  entry: path.resolve(__dirname, 'src/index.ts'), // エントリーポイント
   output: {
     path: outputPath,
     filename: 'bundle.js', // 出力するバンドルのファイル名
