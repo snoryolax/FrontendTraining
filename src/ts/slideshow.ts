@@ -1,10 +1,8 @@
-const MAX_IMAGE_NUM = 3
-let imgCount = 1
-let titleCount = 1
+const MAX_IMAGE_NUM: number = 3 // スライドショーの画像の枚数
 
 // スライドショーの画像を切り替える
-const changeImage = () => {
-  imgCount++
+const changeImage = (count: number) => {
+  const imgCount: number = count
 
   // 表示する画像が含まれる要素の取得
   const activeImageElem = document.getElementById(
@@ -50,16 +48,11 @@ const changeImage = () => {
       break
     }
   }
-
-  // 2→3→1→2→3→1...
-  if (imgCount === MAX_IMAGE_NUM) {
-    imgCount = 0
-  }
 }
 
 // スライドショーのテキストを切り替える
-const changeTitle = () => {
-  titleCount++
+const changeTitle = (count: number) => {
+  const titleCount: number = count
 
   // 表示するテキストが含まれる要素の取得
   const activeTitleElem = document.getElementById(
@@ -105,19 +98,18 @@ const changeTitle = () => {
       break
     }
   }
-
-  // 2→3→1→2→3→1...
-  if (titleCount === MAX_IMAGE_NUM) {
-    titleCount = 0
-  }
 }
 
-const slideshow = () => {
+const slideshow = (interval: number) => {
+  let count: number = 1 // 2→3→1→2→3→1...
   setInterval(() => {
-    changeImage()
-    changeTitle()
-    console.log('changed')
-  }, 8000)
+    count++
+    changeImage(count)
+    changeTitle(count)
+    if (count === MAX_IMAGE_NUM) {
+      count = 0
+    }
+  }, interval)
 }
 
 export default slideshow

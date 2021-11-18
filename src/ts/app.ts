@@ -3,5 +3,5 @@ import slideshow from './slideshow'
 import '../scss/style.scss'
 
 window.onload = () => {
-  slideshow()
+  slideshow(8000)
 }
