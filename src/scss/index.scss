@@ -119,11 +119,13 @@
     }
     .hyge-talk {
       &-wrapper {
-        position: relative;
         padding: 11.2rem 7.5vw;
         border-top: 0.5px solid var.$border-gray;
       }
       &-header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         h2 {
           font-size: 1.6rem;
           font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
@@ -131,23 +133,34 @@
           letter-spacing: 0.04em;
         }
         .link-index {
-          position: absolute;
-          top: 11.2rem;
-          right: 6vw;
-          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
           font-size: 1.6rem;
+          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
           letter-spacing: 0.04em;
         }
+        // .link-index {
+        //   position: absolute;
+        //   top: 11.2rem;
+        //   right: 6vw;
+        //   font-size: 1.6rem;
+        //   font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+        //   letter-spacing: 0.04em;
+        // }
       }
       &-link-container {
         margin-top: 5.6rem;
         ul {
           display: flex;
           flex-wrap: nowrap;
-          justify-content: center;
+          justify-content: space-between;
           li {
             width: 18vw;
             margin: 0 2vw 11.2rem;
+            &:nth-child(1) {
+              margin-left: 0;
+            }
+            &:nth-child(4) {
+              margin-right: 0;
+            }
             .title {
               margin-top: 2.8rem;
               font-size: 2rem;
