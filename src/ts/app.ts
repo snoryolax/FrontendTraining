@@ -1,7 +1,8 @@
 /* eslint no-unused-vars: 0 */
-import changeImage from './slideshow'
+import { ChangeImage, ChangeText } from './slideshow'
 import '../scss/style.scss'
 
 window.onload = () => {
-  changeImage()
+  ChangeImage()
+  ChangeText()
 }
