@@ -1,4 +1,7 @@
-/* eslint no-unused-vars: 0 */
+import slideshow from './slideshow'
 
-import getRandomElement, { Animals, Dog } from './animals'
-import '../scss/style.scss'
+const Slideshow = (window.onload = () => {
+  slideshow(8000)
+})
+
+export default Slideshow
