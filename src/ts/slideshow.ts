@@ -117,7 +117,7 @@ const slideshow = () => {
     changeImage()
     changeTitle()
     console.log('changed')
-  }, 2000)
+  }, 8000)
 }
 
 export default slideshow
