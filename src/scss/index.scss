@@ -21,8 +21,16 @@
           height: 100%;
           object-fit: cover;
         }
+        #image02,
+        #image03 {
+          display: none;
+        }
       }
       &-text-container {
+        #title02,
+        #title03 {
+          display: none;
+        }
         figcaption {
           display: flex;
           flex-direction: column;

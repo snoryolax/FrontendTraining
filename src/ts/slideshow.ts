@@ -1,46 +1,123 @@
-import Image01 from '../img/top_slide_01.jpg'
-import Image02 from '../img/top_slide_02.jpg'
-import Image03 from '../img/top_slide_03.jpg'
+const MAX_IMAGE_NUM = 3
+let imgCount = 1
+let titleCount = 1
 
-const imgPath = [Image01, Image02, Image03]
-const text = [
-  ['ハイジの仕事の進め方', 'Our Workflow'],
-  ['Webはブランドの旗艦店', 'TATRAS CONCEPT STORE'],
-  ['オンラインストアで二歩先をゆく', 'nano・universe 2018-2019 EC/APP UI改善'],
-]
-
-let imgCount = -1
-let textCount = -1
-
+// スライドショーの画像を切り替える
 const changeImage = () => {
   imgCount++
-  if (imgCount === imgPath.length) {
+
+  // 表示する画像が含まれる要素の取得
+  const activeImageElem = document.getElementById(
+    `image0${imgCount}`
+  ) as HTMLAnchorElement
+
+  // imgCountによる画像の出し分け
+  switch (imgCount) {
+    case 1: {
+      const inactiveImageElem01 = document.getElementById(
+        `image0${imgCount + 1}`
+      ) as HTMLAnchorElement
+      const inactiveImageElem02 = document.getElementById(
+        `image0${imgCount + 2}`
+      ) as HTMLAnchorElement
+      inactiveImageElem01.style.display = 'none'
+      inactiveImageElem02.style.display = 'none'
+      activeImageElem.style.display = 'block'
+      break
+    }
+    case 2: {
+      const inactiveImageElem01 = document.getElementById(
+        `image0${imgCount + 1}`
+      ) as HTMLAnchorElement
+      const inactiveImageElem02 = document.getElementById(
+        `image0${imgCount - 1}`
+      ) as HTMLAnchorElement
+      inactiveImageElem01.style.display = 'none'
+      inactiveImageElem02.style.display = 'none'
+      activeImageElem.style.display = 'block'
+      break
+    }
+    case 3: {
+      const inactiveImageElem01 = document.getElementById(
+        `image0${imgCount - 1}`
+      ) as HTMLAnchorElement
+      const inactiveImageElem02 = document.getElementById(
+        `image0${imgCount - 2}`
+      ) as HTMLAnchorElement
+      inactiveImageElem01.style.display = 'none'
+      inactiveImageElem02.style.display = 'none'
+      activeImageElem.style.display = 'block'
+      break
+    }
+  }
+
+  // 2→3→1→2→3→1...
+  if (imgCount === MAX_IMAGE_NUM) {
     imgCount = 0
   }
-  const elem = document.getElementById('slideshow') as HTMLImageElement
-  elem.src = imgPath[imgCount]
-  setTimeout(() => {
-    changeImage()
-    console.log('image changed')
-  }, 8000)
 }
 
-const changeText = () => {
-  textCount++
-  if (textCount === text.length) {
-    textCount = 0
+// スライドショーのテキストを切り替える
+const changeTitle = () => {
+  titleCount++
+
+  // 表示するテキストが含まれる要素の取得
+  const activeTitleElem = document.getElementById(
+    `title0${titleCount}`
+  ) as HTMLAnchorElement
+
+  // titleCountによる画像の出し分け
+  switch (titleCount) {
+    case 1: {
+      const inactiveTitleElem01 = document.getElementById(
+        `title0${titleCount + 1}`
+      ) as HTMLAnchorElement
+      const inactiveTitleElem02 = document.getElementById(
+        `title0${titleCount + 2}`
+      ) as HTMLAnchorElement
+      inactiveTitleElem01.style.display = 'none'
+      inactiveTitleElem02.style.display = 'none'
+      activeTitleElem.style.display = 'block'
+      break
+    }
+    case 2: {
+      const inactiveTitleElem01 = document.getElementById(
+        `title0${titleCount + 1}`
+      ) as HTMLAnchorElement
+      const inactiveTitleElem02 = document.getElementById(
+        `title0${titleCount - 1}`
+      ) as HTMLAnchorElement
+      inactiveTitleElem01.style.display = 'none'
+      inactiveTitleElem02.style.display = 'none'
+      activeTitleElem.style.display = 'block'
+      break
+    }
+    case 3: {
+      const inactiveTitleElem01 = document.getElementById(
+        `title0${titleCount - 1}`
+      ) as HTMLAnchorElement
+      const inactiveTitleElem02 = document.getElementById(
+        `title0${titleCount - 2}`
+      ) as HTMLAnchorElement
+      inactiveTitleElem01.style.display = 'none'
+      inactiveTitleElem02.style.display = 'none'
+      activeTitleElem.style.display = 'block'
+      break
+    }
   }
-  const h2Elem = document.getElementById('slideshowTitle') as HTMLHeadingElement
-  const h3Elem = document.getElementById(
-    'slideshowSubTitle'
-  ) as HTMLHeadingElement
-  h2Elem.innerHTML = `<span>${text[textCount][0]}</span>`
-  h3Elem.innerHTML = `<span>${text[textCount][1]}</span>`
-  setTimeout(() => {
-    changeText()
-    console.log('text changed')
-  }, 8000)
+
+  // 2→3→1→2→3→1...
+  if (titleCount === MAX_IMAGE_NUM) {
+    titleCount = 0
+  }
 }
 
-export const ChangeImage = changeImage
-export const ChangeText = changeText
+const slideshow = () => {
+  setInterval(() => {
+    changeImage()
+    changeTitle()
+    console.log('changed')
+  }, 2000)
+}
+
+export default slideshow
