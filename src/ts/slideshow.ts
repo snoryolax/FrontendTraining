@@ -1,15 +1,12 @@
 const MAX_IMAGE_NUM: number = 3 // スライドショーの画像の枚数
 
-// スライドショーの画像を切り替える
-const changeImage = (count: number) => {
-  const imgCount: number = count
-
+// 画像の出し分け
+const toggleImg = (imgCount: number) => {
   // 表示する画像が含まれる要素の取得
   const activeImageElem = document.getElementById(
     `image0${imgCount}`
   ) as HTMLAnchorElement
 
-  // imgCountによる画像の出し分け
   switch (imgCount) {
     case 1: {
       const inactiveImageElem01 = document.getElementById(
@@ -48,6 +45,14 @@ const changeImage = (count: number) => {
       break
     }
   }
+}
+
+// 画像の切り替え
+const changeImage = (count: number) => {
+  const imgCount: number = count
+
+  // 画像の出し分け
+  toggleImg(imgCount)
 }
 
 // スライドショーのテキストを切り替える
