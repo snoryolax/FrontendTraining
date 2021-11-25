@@ -1,69 +1,45 @@
-const MAX_IMAGE_NUM: number =
-  document.getElementsByClassName('hero-container').length // スライドの枚数を取得
+// スライドの枚数を取得
+const getSlidesNum = () => {
+  const slidesNum: number =
+    document.getElementsByClassName('hero-container').length
+  return slidesNum
+}
 
-const toggleSlide = (slideCount: number) => {
-  // 表示するスライドが含まれる要素の取得
-  const activeElem = document.getElementById(
-    `slide0${slideCount}`
-  ) as HTMLAnchorElement
+// スライドの要素を取得
+const loadSlideElem = () => {
+  const slidesArray: HTMLDivElement[] = []
+  for (let i = 0; i < getSlidesNum(); i++) {
+    slidesArray.push(
+      document.getElementById(`slide0${i + 1}`) as HTMLDivElement
+    )
+  }
+  return slidesArray
+}
 
-  // slideCountによってスライドのdisplayを切り替え
-  switch (slideCount) {
-    case 1: {
-      const inactiveElem01 = document.getElementById(
-        `slide0${slideCount + 1}`
-      ) as HTMLAnchorElement
-      const inactiveElem02 = document.getElementById(
-        `slide0${slideCount + 2}`
-      ) as HTMLAnchorElement
-      inactiveElem01.style.display = 'none'
-      inactiveElem02.style.display = 'none'
-      activeElem.style.display = 'block'
-      break
-    }
-    case 2: {
-      const inactiveElem01 = document.getElementById(
-        `slide0${slideCount + 1}`
-      ) as HTMLAnchorElement
-      const inactiveElem02 = document.getElementById(
-        `slide0${slideCount - 1}`
-      ) as HTMLAnchorElement
-      inactiveElem01.style.display = 'none'
-      inactiveElem02.style.display = 'none'
-      activeElem.style.display = 'block'
-      break
-    }
-    case 3: {
-      const inactiveElem01 = document.getElementById(
-        `slide0${slideCount - 1}`
-      ) as HTMLAnchorElement
-      const inactiveElem02 = document.getElementById(
-        `slide0${slideCount - 2}`
-      ) as HTMLAnchorElement
-      inactiveElem01.style.display = 'none'
-      inactiveElem02.style.display = 'none'
-      activeElem.style.display = 'block'
-      break
+// スライドを切り替え
+const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
+  const index = slideCount - 1 // 表示するスライドのインデックス
+
+  // 表示するスライド
+  slideElems[index].style.display = 'block'
+
+  // 表示しないスライド
+  for (let i = 0; i < getSlidesNum(); i++) {
+    if (index !== i) {
+      slideElems[i].style.display = 'none'
     }
   }
 }
 
-// スライドの切り替え
-const changeSlide = (count: number) => {
-  const slideCount: number = count
-
-  // スライドの出し分け
-  toggleSlide(slideCount)
-}
-
 // スライドショーの実行
 const slideshow = (interval: number) => {
-  let count: number = 1 // 2→3→1→2→3→1...
+  let slideCount: number = 1 // 2→3→1→2→3→1...
+  const slideElems: HTMLDivElement[] = loadSlideElem()
   setInterval(() => {
-    count++
-    changeSlide(count)
-    if (count === MAX_IMAGE_NUM) {
-      count = 0
+    slideCount++
+    toggleSlide(slideCount, slideElems)
+    if (slideCount === getSlidesNum()) {
+      slideCount = 0
     }
   }, interval)
 }
