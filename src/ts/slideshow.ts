@@ -1,4 +1,5 @@
-const MAX_IMAGE_NUM: number = 3 // スライドショーの画像の枚数
+const MAX_IMAGE_NUM: number =
+  document.getElementsByClassName('hero-container').length // スライドショーの枚数を取得
 
 // 画像の出し分け
 const toggleImg = (imgCount: number) => {
