@@ -4,13 +4,11 @@ const SLIDE_NUM: number =
 
 // スライドの要素を取得
 const loadSlideElem = () => {
-  const slidesArray: HTMLDivElement[] = []
+  const slideArray: HTMLDivElement[] = []
   for (let i = 0; i < SLIDE_NUM; i++) {
-    slidesArray.push(
-      document.getElementById(`slide0${i + 1}`) as HTMLDivElement
-    )
+    slideArray.push(document.getElementById(`slide0${i + 1}`) as HTMLDivElement)
   }
-  return slidesArray
+  return slideArray
 }
 
 // スライドを切り替え
