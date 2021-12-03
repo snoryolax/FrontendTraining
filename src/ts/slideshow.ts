@@ -1,14 +1,11 @@
-// スライドの枚数を取得
-const getSlidesNum = () => {
-  const slidesNum: number =
-    document.getElementsByClassName('hero-container').length
-  return slidesNum
-}
+// スライドの枚数
+const SLIDE_NUM: number =
+  document.getElementsByClassName('hero-container').length
 
 // スライドの要素を取得
 const loadSlideElem = () => {
   const slidesArray: HTMLDivElement[] = []
-  for (let i = 0; i < getSlidesNum(); i++) {
+  for (let i = 0; i < SLIDE_NUM; i++) {
     slidesArray.push(
       document.getElementById(`slide0${i + 1}`) as HTMLDivElement
     )
@@ -24,7 +21,7 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
   slideElems[index].style.display = 'block'
 
   // 表示しないスライド
-  for (let i = 0; i < getSlidesNum(); i++) {
+  for (let i = 0; i < SLIDE_NUM; i++) {
     if (index !== i) {
       slideElems[i].style.display = 'none'
     }
@@ -38,7 +35,7 @@ const slideshow = (interval: number) => {
   setInterval(() => {
     slideCount++
     toggleSlide(slideCount, slideElems)
-    if (slideCount === getSlidesNum()) {
+    if (slideCount === SLIDE_NUM) {
       slideCount = 0
     }
   }, interval)
