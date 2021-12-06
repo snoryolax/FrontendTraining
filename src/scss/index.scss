@@ -14,22 +14,16 @@
         position: relative;
         width: 100vw;
         overflow: hidden;
+        #slide02,
+        #slide03 {
+          display: none;
+        }
       }
-      &-image-container {
+      &-container {
         .image {
           width: 100%;
           height: 100%;
           object-fit: cover;
-        }
-        #image02,
-        #image03 {
-          display: none;
-        }
-      }
-      &-text-container {
-        #title02,
-        #title03 {
-          display: none;
         }
         figcaption {
           display: flex;

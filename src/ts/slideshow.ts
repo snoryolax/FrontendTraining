@@ -1,113 +1,42 @@
-const MAX_IMAGE_NUM: number = 3 // スライドショーの画像の枚数
+/* スライドの枚数 */
+const SLIDE_NUM: number =
+  document.getElementsByClassName('hero-container').length
 
-// スライドショーの画像を切り替える
-const changeImage = (count: number) => {
-  const imgCount: number = count
-
-  // 表示する画像が含まれる要素の取得
-  const activeImageElem = document.getElementById(
-    `image0${imgCount}`
-  ) as HTMLAnchorElement
-
-  // imgCountによる画像の出し分け
-  switch (imgCount) {
-    case 1: {
-      const inactiveImageElem01 = document.getElementById(
-        `image0${imgCount + 1}`
-      ) as HTMLAnchorElement
-      const inactiveImageElem02 = document.getElementById(
-        `image0${imgCount + 2}`
-      ) as HTMLAnchorElement
-      inactiveImageElem01.style.display = 'none'
-      inactiveImageElem02.style.display = 'none'
-      activeImageElem.style.display = 'block'
-      break
-    }
-    case 2: {
-      const inactiveImageElem01 = document.getElementById(
-        `image0${imgCount + 1}`
-      ) as HTMLAnchorElement
-      const inactiveImageElem02 = document.getElementById(
-        `image0${imgCount - 1}`
-      ) as HTMLAnchorElement
-      inactiveImageElem01.style.display = 'none'
-      inactiveImageElem02.style.display = 'none'
-      activeImageElem.style.display = 'block'
-      break
-    }
-    case 3: {
-      const inactiveImageElem01 = document.getElementById(
-        `image0${imgCount - 1}`
-      ) as HTMLAnchorElement
-      const inactiveImageElem02 = document.getElementById(
-        `image0${imgCount - 2}`
-      ) as HTMLAnchorElement
-      inactiveImageElem01.style.display = 'none'
-      inactiveImageElem02.style.display = 'none'
-      activeImageElem.style.display = 'block'
-      break
-    }
+/* スライドの要素を取得 */
+const loadSlideElem = () => {
+  const slideArray: HTMLDivElement[] = []
+  for (let i = 0; i < SLIDE_NUM; i++) {
+    slideArray.push(document.getElementById(`slide0${i + 1}`) as HTMLDivElement)
   }
+  return slideArray
 }
 
-// スライドショーのテキストを切り替える
-const changeTitle = (count: number) => {
-  const titleCount: number = count
+/* スライドを切り替え */
+const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
+  // 表示するスライドのインデックス
+  const index = slideCount - 1
 
-  // 表示するテキストが含まれる要素の取得
-  const activeTitleElem = document.getElementById(
-    `title0${titleCount}`
-  ) as HTMLAnchorElement
-
-  // titleCountによる画像の出し分け
-  switch (titleCount) {
-    case 1: {
-      const inactiveTitleElem01 = document.getElementById(
-        `title0${titleCount + 1}`
-      ) as HTMLAnchorElement
-      const inactiveTitleElem02 = document.getElementById(
-        `title0${titleCount + 2}`
-      ) as HTMLAnchorElement
-      inactiveTitleElem01.style.display = 'none'
-      inactiveTitleElem02.style.display = 'none'
-      activeTitleElem.style.display = 'block'
-      break
-    }
-    case 2: {
-      const inactiveTitleElem01 = document.getElementById(
-        `title0${titleCount + 1}`
-      ) as HTMLAnchorElement
-      const inactiveTitleElem02 = document.getElementById(
-        `title0${titleCount - 1}`
-      ) as HTMLAnchorElement
-      inactiveTitleElem01.style.display = 'none'
-      inactiveTitleElem02.style.display = 'none'
-      activeTitleElem.style.display = 'block'
-      break
-    }
-    case 3: {
-      const inactiveTitleElem01 = document.getElementById(
-        `title0${titleCount - 1}`
-      ) as HTMLAnchorElement
-      const inactiveTitleElem02 = document.getElementById(
-        `title0${titleCount - 2}`
-      ) as HTMLAnchorElement
-      inactiveTitleElem01.style.display = 'none'
-      inactiveTitleElem02.style.display = 'none'
-      activeTitleElem.style.display = 'block'
-      break
-    }
+  // すべてのスライドを非表示
+  for (let i = 0; i < SLIDE_NUM; i++) {
+    slideElems[i].style.display = 'none'
   }
+
+  // 特定のスライドのみを表示
+  slideElems[index].style.display = 'block'
 }
 
+/* スライドショーの実行 */
 const slideshow = (interval: number) => {
-  let count: number = 1 // 2→3→1→2→3→1...
+  // 2→3→1→2→3→1...
+  let slideCount: number = 1
+  // スライドの要素を取得
+  const slideElems: HTMLDivElement[] = loadSlideElem()
+
   setInterval(() => {
-    count++
-    changeImage(count)
-    changeTitle(count)
-    if (count === MAX_IMAGE_NUM) {
-      count = 0
+    slideCount++
+    toggleSlide(slideCount, slideElems)
+    if (slideCount === SLIDE_NUM) {
+      slideCount = 0
     }
   }, interval)
 }
