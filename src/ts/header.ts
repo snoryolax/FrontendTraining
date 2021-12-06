@@ -17,6 +17,12 @@ const header = () => {
     // 文字色の切り替え
     const title = document.querySelector('.header-container')
     title!.classList.toggle('menu-active')
+
+    // メニューの表示の切り替え
+    const body = document.querySelector('body')
+    const menu = document.querySelector('.menu-wrapper')
+    body!.classList.toggle('menu-active')
+    menu!.classList.toggle('menu-active')
   }
 }
 

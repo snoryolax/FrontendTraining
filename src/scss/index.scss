@@ -2,6 +2,12 @@
 @use 'base';
 @use 'variable' as var;
 
+body {
+  &.menu-active {
+    position: fixed;
+    top: 0;
+  }
+}
 .wrapper {
   position: relative;
   display: flex;
@@ -9,15 +15,17 @@
   justify-content: space-between;
   min-height: 100vh;
   header {
-    position: fixed;
-    top: 3.9rem;
-    right: 3vw;
-    z-index: 1;
-    font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
-    font-size: 1.6rem;
-    letter-spacing: 0.02em;
     .header {
       &-wrapper {
+        position: fixed;
+        top: 3.9rem;
+        right: 3vw;
+        z-index: 1;
+        font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 0.02em;
+      }
+      &-container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -80,6 +88,18 @@
             }
           }
         }
+      }
+    }
+    .menu {
+      &-wrapper {
+        width: 100vw;
+        height: 100vh;
+        display: none;
+        &.menu-active {
+          display: block;
+        }
+      }
+      &-container {
       }
     }
   }
