@@ -24,6 +24,12 @@
         align-items: center;
         font-size: 1.8rem;
         .header {
+          &-container {
+            display: flex;
+            &.is-open {
+              opacity: 0.3;
+            }
+          }
           &-title {
           }
           &-location {

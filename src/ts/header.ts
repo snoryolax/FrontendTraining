@@ -13,6 +13,10 @@ const header = () => {
     for (let i = 0; i < dot.length; i++) {
       dot[i].classList.toggle('is-open')
     }
+
+    // 文字色の切り替え
+    const title = document.querySelector('.header-container')
+    title!.classList.toggle('is-open')
   }
 }
 
