@@ -54,17 +54,22 @@
             .circle {
               fill: #fff;
               opacity: 0;
-            }
-            .circle.is-open {
-              opacity: 1;
+              &.is-open {
+                opacity: 1;
+              }
             }
             .dot {
-              fill: var.$font-blue;
-              transition: none;
+              fill: var.$header-button-blue;
+              &.is-open {
+                fill: var.$header-button-green;
+              }
             }
             &:hover {
               .dot {
-                fill: var.$font-orange;
+                fill: var.$header-button-orange;
+                &.is-open {
+                  fill: var.$header-button-green;
+                }
               }
             }
           }

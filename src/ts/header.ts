@@ -3,8 +3,16 @@ const header = () => {
   const headerButton = document.getElementById('headerButton')
   headerButton!.onclick = () => {
     console.log('clicked')
-    const circle = document.querySelector('circle')
+
+    // dotの背景の円の表示切り替え
+    const circle = document.querySelector('.circle')
     circle!.classList.toggle('is-open')
+
+    // dotの表示切り替え
+    const dot = document.querySelectorAll('.dot')
+    for (let i = 0; i < dot.length; i++) {
+      dot[i].classList.toggle('is-open')
+    }
   }
 }
 
