@@ -14,8 +14,14 @@ a {
   color: var.$font-blue;
   background-color: transparent;
   text-decoration: none;
+  transition: color 0.1s;
   h3 {
     color: var.$font-black;
+    transition: color 0.1s;
+  }
+  p {
+    color: var.$font-black;
+    transition: color 0.1s;
   }
 }
 
@@ -32,6 +38,9 @@ a:hover {
 .gallery-wrapper,
 .about-wrapper,
 .hyge-talk-wrapper {
+  img {
+    transition: opacity 0.1s;
+  }
   a:hover {
     img {
       opacity: 0.8;
@@ -43,6 +52,7 @@ footer {
   a {
     color: var.$font-black;
     opacity: 0.7;
+    transition: color 0.1s;
   }
   a:hover {
     color: var.$font-orange;
