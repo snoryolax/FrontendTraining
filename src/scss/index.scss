@@ -26,7 +26,7 @@
         .header {
           &-container {
             display: flex;
-            &.is-open {
+            &.menu-active {
               opacity: 0.3;
             }
           }
@@ -60,20 +60,20 @@
             .circle {
               fill: #fff;
               opacity: 0;
-              &.is-open {
+              &.menu-active {
                 opacity: 1;
               }
             }
             .dot {
               fill: var.$header-button-blue;
-              &.is-open {
+              &.menu-active {
                 fill: var.$header-button-green;
               }
             }
             &:hover {
               .dot {
                 fill: var.$header-button-orange;
-                &.is-open {
+                &.menu-active {
                   fill: var.$header-button-green;
                 }
               }
