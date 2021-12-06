@@ -8,6 +8,61 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  header {
+    position: fixed;
+    top: 3.9rem;
+    right: 3vw;
+    z-index: 1;
+    font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.02em;
+    .header {
+      &-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.8rem;
+        .header {
+          &-title {
+          }
+          &-location {
+            display: flex;
+            align-items: center;
+            margin-left: 2.3rem;
+            &::before {
+              content: '';
+              display: block;
+              width: 2.3rem;
+              height: 0.1rem;
+              margin-right: 2.1rem;
+              background-color: #101010;
+            }
+          }
+        }
+        a {
+          color: var.$font-black;
+        }
+        button {
+          appearance: none;
+          border: none;
+          background: none;
+          svg {
+            position: relative;
+            top: 3px;
+            cursor: pointer;
+            .circle {
+              fill: #fff;
+              opacity: 0;
+            }
+            .dot {
+              fill: var.$font-blue;
+            }
+          }
+        }
+      }
+    }
+  }
   .container {
     .hero {
       &-wrapper {
