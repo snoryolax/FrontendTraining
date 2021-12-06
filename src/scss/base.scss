@@ -14,22 +14,37 @@ a {
   color: var.$font-blue;
   background-color: transparent;
   text-decoration: none;
-  transition: color 0.5s;
   h3 {
     color: var.$font-black;
-    transition: color 0.5s;
   }
 }
 
 a:hover {
   color: var.$font-orange;
-  transition: color 0.1s;
   h3 {
     color: var.$font-orange;
-    transition: color 0.1s;
   }
   p {
     color: var.$font-orange;
-    transition: color 0.1s;
+  }
+}
+
+.gallery-wrapper,
+.about-wrapper,
+.hyge-talk-wrapper {
+  a:hover {
+    img {
+      opacity: 0.8;
+    }
+  }
+}
+
+footer {
+  a {
+    color: var.$font-black;
+    opacity: 0.7;
+  }
+  a:hover {
+    color: var.$font-orange;
   }
 }
