@@ -94,12 +94,19 @@ body {
       &-wrapper {
         width: 100vw;
         height: 100vh;
+        background-color: var.$menu-bg;
         display: none;
         &.menu-active {
           display: block;
         }
       }
       &-container {
+        .menu-left-container {
+          width: 50vw;
+        }
+        .menu-right-container {
+          width: 50vw;
+        }
       }
     }
   }
