@@ -31,9 +31,15 @@ body {
         justify-content: space-between;
         align-items: center;
         font-size: 1.8rem;
-        &-title {
+        &.menu-active {
+          a,
+          span {
+            opacity: 0.3;
+          }
         }
-        &-location {
+        .title {
+        }
+        .location {
           display: flex;
           align-items: center;
           margin-left: 2.3rem;
