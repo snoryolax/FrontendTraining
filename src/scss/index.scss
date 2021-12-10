@@ -31,27 +31,19 @@ body {
         justify-content: space-between;
         align-items: center;
         font-size: 1.8rem;
-        .header {
-          &-container {
-            display: flex;
-            &.menu-active {
-              opacity: 0.3;
-            }
-          }
-          &-title {
-          }
-          &-location {
-            display: flex;
-            align-items: center;
-            margin-left: 2.3rem;
-            &::before {
-              content: '';
-              display: block;
-              width: 2.3rem;
-              height: 0.1rem;
-              margin-right: 2.1rem;
-              background-color: #101010;
-            }
+        &-title {
+        }
+        &-location {
+          display: flex;
+          align-items: center;
+          margin-left: 2.3rem;
+          &::before {
+            content: '';
+            display: block;
+            width: 2.3rem;
+            height: 0.1rem;
+            margin-right: 2.1rem;
+            background-color: #101010;
           }
         }
         a {
