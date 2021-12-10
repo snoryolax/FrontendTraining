@@ -1,6 +1,6 @@
 /* Header */
 const header = () => {
-  const headerButton = document.getElementById('headerButton')
+  const headerButton = document.querySelector('header button') as HTMLElement
   headerButton!.onclick = () => {
     console.log('clicked')
 
