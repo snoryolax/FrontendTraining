@@ -58,3 +58,15 @@ footer {
     color: var.$font-orange;
   }
 }
+
+.nav-main,
+.nav-sub,
+.nav-social {
+  a {
+    color: var.$font-black;
+    transition: color 0.1s;
+  }
+  a:hover {
+    color: var.$font-orange;
+  }
+}
