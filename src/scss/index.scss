@@ -95,45 +95,85 @@ body {
         display: none;
         &.menu-active {
           display: block;
+          height: 100vw;
         }
       }
       &-container {
+        position: fixed;
         display: flex;
-        .menu-left-container {
-        }
-        .menu-right-container {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var.$menu-bg;
+        figure {
+          position: relative;
           width: 50%;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          text-align: right;
+          a {
+            position: relative;
+            height: 100%;
+            display: block;
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              display: block;
+              background: rgba(0, 0, 0, 0.2);
+              z-index: 1;
+            }
+            img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+            }
+            figcaption {
+              position: absolute;
+              bottom: 2.2rem;
+              display: block;
+              width: 100%;
+              text-align: center;
+              font-family: 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+              font-size: 1.2rem;
+              line-height: 1.5;
+              letter-spacing: 0.008em;
+              color: #ebebeb;
+            }
+          }
+          svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 23.8rem;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 2;
+            path {
+              fill: #fff;
+            }
+          }
+        }
+        .menu {
+          width: 50%;
           padding: 9.8rem 8.7rem 0 0;
+          display: flex;
+          justify-content: flex-end;
+          line-height: 2;
+          font-size: 1.2rem;
+          letter-spacing: 0.04em;
+          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+          text-align: right;
           .nav {
             &-main {
-              li {
-                line-height: 2;
-                a {
-                  font-size: 1.6rem;
-                }
-              }
+              font-size: 1.6rem;
             }
             &-sub {
               margin-top: 2.8rem;
-              li {
-                line-height: 2;
-                a {
-                  font-size: 1.2rem;
-                }
-              }
             }
             &-social {
               margin-top: 2.8rem;
-              li {
-                line-height: 2;
-                a {
-                  font-size: 1.2rem;
-                }
-              }
             }
           }
         }
