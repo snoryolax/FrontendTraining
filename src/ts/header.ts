@@ -23,6 +23,17 @@ const header = () => {
     const menu = document.querySelector('.menu-wrapper')
     body!.classList.toggle('menu-active')
     menu!.classList.toggle('menu-active')
+
+    // 2つの画像の出し分け（ランダム）
+    if (document.querySelectorAll('.menu-active').length > 0) {
+      const menuId = Math.floor(Math.random() * 2) + 1
+      const menuImage = document.querySelectorAll('#menu01, #menu02')
+      for (let i = 0; i < menuImage.length; i++) {
+        menuImage[i].classList.remove('active')
+      }
+      menuImage[menuId - 1].classList.add('active')
+      console.log(menuId)
+    }
   }
 }
 

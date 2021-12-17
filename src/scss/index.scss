@@ -112,7 +112,7 @@ body {
           a {
             position: relative;
             height: 100%;
-            display: block;
+            display: none;
             &::before {
               content: '';
               position: absolute;
@@ -140,6 +140,9 @@ body {
               line-height: 1.5;
               letter-spacing: 0.008em;
               color: #ebebeb;
+            }
+            &.active {
+              display: block;
             }
           }
           svg {
