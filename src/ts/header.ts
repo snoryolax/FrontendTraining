@@ -24,14 +24,15 @@ const toggleMenu = () => {
 
 /* メニュー左ペインの画像の出し分け（ランダム） */
 const changeMenuImage = () => {
+  // メニューオープン時の判定
   if (document.querySelectorAll('.menu-active').length > 0) {
     const menuId = Math.floor(Math.random() * 2) + 1
     const menuImage = document.querySelectorAll('#menu01, #menu02')
     for (let i = 0; i < menuImage.length; i++) {
       menuImage[i].classList.remove('active')
     }
+    // menuId（1 or 2）をindexに直接渡すために「menuId - 1」
     menuImage[menuId - 1].classList.add('active')
-    console.log(menuId)
   }
 }
 
@@ -43,6 +44,7 @@ const showCurrentLocation = () => {
     page[i].classList.remove('current-page')
   }
   if (location === '/') {
+    // 「Top Page」
     page[7].classList.add('current-page')
   }
 }
