@@ -34,6 +34,18 @@ const header = () => {
       menuImage[menuId - 1].classList.add('active')
       console.log(menuId)
     }
+
+    // メニューに現在のページを表示
+    const location = window.location.pathname
+    const page = document.querySelectorAll(
+      '.menu .nav-main a, .menu .nav-sub a'
+    )
+    for (let i = 0; i < page.length; i++) {
+      page[i].classList.remove('current-page')
+    }
+    if (location === '/') {
+      page[7].classList.add('current-page')
+    }
   }
 }
 

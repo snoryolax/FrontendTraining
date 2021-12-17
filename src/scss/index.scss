@@ -168,6 +168,23 @@ body {
           letter-spacing: 0.04em;
           font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
           text-align: right;
+          a {
+            position: relative;
+            &.current-page {
+              &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -0.8vw;
+                transform: translateY(-50%);
+                display: block;
+                width: 0.4rem;
+                height: 0.4rem;
+                border-radius: 50%;
+                background-color: #2ca108;
+              }
+            }
+          }
           .nav {
             &-main {
               font-size: 1.6rem;
