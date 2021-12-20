@@ -11,11 +11,19 @@
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 body {
   &.menu-active {
     position: fixed;
     top: 0;
-    animation: fadeIn 0.3s forwards;
   }
 }
 .wrapper {
@@ -106,6 +114,7 @@ body {
         &.menu-active {
           display: block;
           height: 100vw;
+          animation: fadeIn 0.3s forwards;
         }
       }
       &-container {
@@ -119,6 +128,7 @@ body {
         figure {
           position: relative;
           width: 50%;
+          animation: fadeIn 0.6s forwards;
           a {
             position: relative;
             height: 100%;

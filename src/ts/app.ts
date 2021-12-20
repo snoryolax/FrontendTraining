@@ -3,5 +3,5 @@ import slideshow from './slideshow'
 
 export const App = (window.onload = () => {
   header()
-  slideshow(1000)
+  slideshow(4000)
 })
