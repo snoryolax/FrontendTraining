@@ -2,10 +2,20 @@
 @use 'base';
 @use 'variable' as var;
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 body {
   &.menu-active {
     position: fixed;
     top: 0;
+    animation: fadeIn 0.3s forwards;
   }
 }
 .wrapper {
