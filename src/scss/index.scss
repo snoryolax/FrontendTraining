@@ -241,9 +241,7 @@ body {
         .progress {
           &-container {
             display: flex;
-            width: 100%;
             .progress-slide01 {
-              width: 33%;
               .bar {
                 &::before {
                   content: '';
@@ -265,12 +263,11 @@ body {
                   height: 0.4rem;
 
                   background-color: #2ca108;
-                  // transform-origin: left;
-                  // transform: scaleX(0);
-                  // transition-property: transform;
-                  // transition-timing-function: linear;
-                  // transition-duration: 7s;
-                  // transform: scaleX(1);
+                  transform-origin: left;
+                  transition-property: transform;
+                  transition-timing-function: linear;
+                  transition-duration: 7s;
+                  transform: scaleX(1);
                 }
               }
             }
