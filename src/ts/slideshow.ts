@@ -18,11 +18,15 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
 
   // すべてのスライドを非表示
   for (let i = 0; i < SLIDE_NUM; i++) {
-    slideElems[i].style.display = 'none'
+    // slideElems[i].style.display = 'none'
+    slideElems[i].classList.remove('fadeIn')
+    slideElems[i].classList.add('fadeOut')
   }
 
   // 特定のスライドのみを表示
-  slideElems[index].style.display = 'block'
+  // slideElems[index].style.display = 'block'
+  slideElems[index].classList.remove('fadeOut')
+  slideElems[index].classList.add('fadeIn')
 }
 
 /* スライドショーの実行 */

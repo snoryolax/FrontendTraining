@@ -226,7 +226,17 @@ body {
         overflow: hidden;
         #slide02,
         #slide03 {
-          display: none;
+          // display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+        .fadeIn {
+          animation: fadeIn 0.3s forwards;
+        }
+        .fadeOut {
+          animation: fadeOut 0.3s forwards;
         }
       }
       &-container {
