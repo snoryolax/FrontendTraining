@@ -1,3 +1,5 @@
+let timer = 0
+
 /* スライドの枚数 */
 const SLIDE_NUM: number =
   document.getElementsByClassName('hero-container').length
@@ -29,12 +31,20 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
   slideElems[index].classList.add('fadeIn')
 }
 
+/* プログレスバーのアニメーション */
+const progress = (bar: HTMLElement, timer: number) => {
+  const width = timer / 4
+  bar!.style.width = `${width}%`
+}
+
 /* スライドショーの実行 */
 const slideshow = (interval: number) => {
   // 2→3→1→2→3→1...
   let slideCount: number = 1
   // スライドの要素を取得
   const slideElems: HTMLDivElement[] = loadSlideElem()
+  // プログレスバーの要素を取得
+  const bar = document.querySelector<HTMLElement>('.seek-container > div')
 
   setInterval(() => {
     slideCount++
@@ -43,6 +53,13 @@ const slideshow = (interval: number) => {
       slideCount = 0
     }
   }, interval)
+  setInterval(() => {
+    timer += 1
+    progress(bar, timer)
+    if (timer == 400) {
+      timer = 0
+    }
+  }, 10)
 }
 
 export default slideshow
