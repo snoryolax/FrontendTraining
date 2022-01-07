@@ -46,19 +46,25 @@ const slideshow = (interval: number) => {
   // プログレスバーの要素を取得
   const bar = document.querySelector<HTMLElement>('.seek-container > div')
 
-  setInterval(() => {
-    slideCount++
-    toggleSlide(slideCount, slideElems)
-    if (slideCount === SLIDE_NUM) {
-      slideCount = 0
-    }
-  }, interval)
+  // setInterval(() => {
+  //   slideCount++
+  //   toggleSlide(slideCount, slideElems)
+  //   if (slideCount === SLIDE_NUM) {
+  //     slideCount = 0
+  //   }
+  // }, interval)
+
   setInterval(() => {
     timer += 1
-    progress(bar, timer)
-    if (timer == 400) {
+    if (timer === 400) {
       timer = 0
+      slideCount++
+      toggleSlide(slideCount, slideElems)
+      if (slideCount === SLIDE_NUM) {
+        slideCount = 0
+      }
     }
+    progress(bar!, timer)
   }, 10)
 }
 
