@@ -38,25 +38,19 @@ const progress = (bar: HTMLElement, timer: number) => {
 }
 
 /* スライドショーの実行 */
-const slideshow = (interval: number) => {
+const slideshow = (changeInterval: number) => {
   // 2→3→1→2→3→1...
   let slideCount: number = 1
   // スライドの要素を取得
   const slideElems: HTMLDivElement[] = loadSlideElem()
   // プログレスバーの要素を取得
   const bar = document.querySelector<HTMLElement>('.seek-container > div')
-
-  // setInterval(() => {
-  //   slideCount++
-  //   toggleSlide(slideCount, slideElems)
-  //   if (slideCount === SLIDE_NUM) {
-  //     slideCount = 0
-  //   }
-  // }, interval)
+  // プログレスバーの描画間隔
+  const interval = 10
 
   setInterval(() => {
     timer += 1
-    if (timer === 400) {
+    if (timer === changeInterval / interval) {
       timer = 0
       slideCount++
       toggleSlide(slideCount, slideElems)
@@ -65,7 +59,7 @@ const slideshow = (interval: number) => {
       }
     }
     progress(bar!, timer)
-  }, 10)
+  }, interval)
 }
 
 export default slideshow
