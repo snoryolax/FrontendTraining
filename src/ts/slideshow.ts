@@ -1,3 +1,6 @@
+// 2→3→1→2→3→1...
+let slideCount: number = 1
+
 let timer = 0
 
 /* スライドの枚数 */
@@ -32,19 +35,38 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
 }
 
 /* シークバーのアニメーション */
-const seekBar = (bar: HTMLElement, timer: number) => {
+const seekBar = (bar: HTMLDivElement, timer: number) => {
   const width = timer / 4
-  bar!.style.width = `${width}%`
+  // bar!.style.width = `${width}%`
+  switch (slideCount) {
+    case 0:
+      bar[2]!.style.width = `${width}%`
+
+      break
+    case 1:
+      bar[0]!.style.width = `${width}%`
+      break
+    case 2:
+      bar[1]!.style.width = `${width}%`
+      break
+    default:
+      break
+  }
+  if (slideCount === 0 && width === 99.75) {
+    for (let i = 0; i < SLIDE_NUM; i++) {
+      bar[i]!.style.width = '0%'
+    }
+  }
 }
 
 /* スライドショーの実行 */
 const slideshow = (changeInterval: number) => {
-  // 2→3→1→2→3→1...
-  let slideCount: number = 1
   // スライドの要素を取得
   const slideElems: HTMLDivElement[] = loadSlideElem()
   // プログレスバーの要素を取得
-  const bar = document.querySelector<HTMLElement>('.seek-container > div')
+  const bar: HTMLDivElement[] = document.querySelectorAll(
+    '.seek-container > div'
+  )
   // プログレスバーの描画間隔
   const interval = 10
 
