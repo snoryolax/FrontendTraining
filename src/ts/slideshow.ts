@@ -31,8 +31,8 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
   slideElems[index].classList.add('fadeIn')
 }
 
-/* プログレスバーのアニメーション */
-const progress = (bar: HTMLElement, timer: number) => {
+/* シークバーのアニメーション */
+const seekBar = (bar: HTMLElement, timer: number) => {
   const width = timer / 4
   bar!.style.width = `${width}%`
 }
@@ -58,7 +58,7 @@ const slideshow = (changeInterval: number) => {
         slideCount = 0
       }
     }
-    progress(bar!, timer)
+    seekBar(bar!, timer)
   }, interval)
 }
 
