@@ -41,7 +41,6 @@ const seekBar = (bar: HTMLDivElement, timer: number) => {
   switch (slideCount) {
     case 0:
       bar[2]!.style.width = `${width}%`
-
       break
     case 1:
       bar[0]!.style.width = `${width}%`
@@ -65,7 +64,7 @@ const slideshow = (changeInterval: number) => {
   const slideElems: HTMLDivElement[] = loadSlideElem()
   // プログレスバーの要素を取得
   const bar: HTMLDivElement[] = document.querySelectorAll(
-    '.seek-container > div'
+    '.seek-container > div > div'
   )
   // プログレスバーの描画間隔
   const interval = 10

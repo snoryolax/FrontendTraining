@@ -240,14 +240,20 @@ body {
         }
         .seek {
           &-container {
+            display: flex;
             width: 100%;
             position: relative;
             top: -5px;
             background-color: #f5f5f5;
-            div {
-              background-color: #2ca108;
-              width: 0%;
-              height: 4px;
+            #seek01,
+            #seek02,
+            #seek03 {
+              width: calc(100% / 3);
+              div {
+                width: 0%;
+                background-color: #2ca108;
+                height: 4px;
+              }
             }
             &:hover {
               top: -9px;
