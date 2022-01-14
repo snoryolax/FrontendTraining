@@ -36,7 +36,7 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
 
 /* シークバーのアニメーション */
 const seekBar = (bar: HTMLDivElement, timer: number) => {
-  const width = timer / 4
+  const width = timer / 4 + 0.25
   // bar!.style.width = `${width}%`
   switch (slideCount) {
     case 0:
@@ -51,7 +51,7 @@ const seekBar = (bar: HTMLDivElement, timer: number) => {
     default:
       break
   }
-  if (slideCount === 0 && width === 99.75) {
+  if (slideCount === 0 && width === 100) {
     for (let i = 0; i < SLIDE_NUM; i++) {
       bar[i]!.style.width = '0%'
     }
