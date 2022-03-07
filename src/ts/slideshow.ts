@@ -16,6 +16,17 @@ const loadSlideElem = () => {
   return slideArray
 }
 
+/* シークバーの要素を取得 */
+const loadSeekbarElem = () => {
+  const seekbarArray: HTMLDivElement[] = []
+  for (let i = 0; i < SLIDE_NUM; i++) {
+    seekbarArray.push(
+      document.getElementById(`seek0${i + 1}`) as HTMLDivElement
+    )
+  }
+  return seekbarArray
+}
+
 /* スライドを切り替え */
 const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
   // 表示するスライドのインデックス
@@ -62,6 +73,8 @@ const seekBar = (bar: HTMLDivElement, timer: number) => {
 const slideshow = (changeInterval: number) => {
   // スライドの要素を取得
   const slideElems: HTMLDivElement[] = loadSlideElem()
+  // シークバーの要素を取得
+  const seekbarElems: HTMLDivElement[] = loadSeekbarElem()
   // プログレスバーの要素を取得
   const bar: HTMLDivElement[] = document.querySelectorAll(
     '.seek-container > div > div'
@@ -71,6 +84,23 @@ const slideshow = (changeInterval: number) => {
 
   setInterval(() => {
     timer += 1
+
+    // シークバーのクリックによるスライドの切り替え
+    for (let i = 0; i < SLIDE_NUM; i++) {
+      seekbarElems[i]!.onclick = () => {
+        toggleSlide(i + 1, slideElems)
+        if (seekbarElems[i].id === 'seek01') {
+          console.log(seekbarElems[i].id, timer)
+        } else if (seekbarElems[i].id === 'seek02') {
+          console.log(seekbarElems[i].id, timer)
+        } else if (seekbarElems[i].id === 'seek03') {
+          console.log(seekbarElems[i].id, timer)
+        }
+      }
+    }
+
+    // changeInterval(4000) / interval(10)
+    // if (timer === 400)
     if (timer === changeInterval / interval) {
       timer = 0
       slideCount++
