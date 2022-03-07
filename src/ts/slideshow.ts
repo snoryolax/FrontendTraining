@@ -1,6 +1,8 @@
 // 0→1→2→0→1→2...
 let slideCount: number = 0
 
+let beforeSlideCount: number = 0
+
 let timer = 0
 
 /* スライドの枚数 */
@@ -51,12 +53,24 @@ const seekBar = (bar: HTMLDivElement, timer: number) => {
   // bar!.style.width = `${width}%`
   switch (slideCount) {
     case 0:
+      if (beforeSlideCount >= 1) {
+        bar[1]!.style.width = `0%`
+        bar[2]!.style.width = `0%`
+      }
       bar[0]!.style.width = `${width}%`
       break
     case 1:
+      if (beforeSlideCount === 0 || beforeSlideCount === 2) {
+        bar[0]!.style.width = `100%`
+        bar[2]!.style.width = `0%`
+      }
       bar[1]!.style.width = `${width}%`
       break
     case 2:
+      if (beforeSlideCount <= 1) {
+        bar[0]!.style.width = `100%`
+        bar[1]!.style.width = `100%`
+      }
       bar[2]!.style.width = `${width}%`
       break
     default:
@@ -88,13 +102,18 @@ const slideshow = (changeInterval: number) => {
     // シークバーのクリックによるスライドの切り替え
     for (let i = 0; i < SLIDE_NUM; i++) {
       seekbarElems[i]!.onclick = () => {
-        toggleSlide(i + 1, slideElems)
-        if (seekbarElems[i].id === 'seek01') {
-          console.log(seekbarElems[i].id, timer)
-        } else if (seekbarElems[i].id === 'seek02') {
-          console.log(seekbarElems[i].id, timer)
-        } else if (seekbarElems[i].id === 'seek03') {
-          console.log(seekbarElems[i].id, timer)
+        beforeSlideCount = slideCount
+        slideCount = i
+        timer = 0
+        switch (seekbarElems[i].id) {
+          case 'seek01':
+            break
+          case 'seek02':
+            break
+          case 'seek03':
+            break
+          default:
+            break
         }
       }
     }
@@ -111,7 +130,6 @@ const slideshow = (changeInterval: number) => {
     }
     toggleSlide(slideCount, slideElems)
     seekBar(bar!, timer)
-    // console.log(slideCount)
   }, interval)
 }
 
