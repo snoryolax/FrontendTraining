@@ -127,8 +127,8 @@ const slideshow = (changeInterval: number) => {
       if (slideCount === SLIDE_NUM) {
         slideCount = 0
       }
+      toggleSlide(slideCount, slideElems)
     }
-    toggleSlide(slideCount, slideElems)
     seekBar(bar!, timer)
   }, interval)
 }
