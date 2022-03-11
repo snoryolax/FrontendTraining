@@ -34,23 +34,26 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
   // 表示するスライドのインデックス
   const index = slideCount
 
-  // すべてのスライドを非表示
-  for (let i = 0; i < SLIDE_NUM; i++) {
-    // slideElems[i].style.display = 'none'
-    slideElems[i].classList.remove('fadeIn')
-    slideElems[i].classList.add('fadeOut')
-  }
+  if (slideCount !== beforeSlideCount) {
+    // すべてのスライドを非表示
+    for (let i = 0; i < SLIDE_NUM; i++) {
+      // slideElems[i].style.display = 'none'
+      slideElems[i].classList.remove('fadeIn')
+      slideElems[i].classList.add('fadeOut')
+    }
 
-  // 特定のスライドのみを表示
-  // slideElems[index].style.display = 'block'
-  slideElems[index].classList.remove('fadeOut')
-  slideElems[index].classList.add('fadeIn')
+    // 特定のスライドのみを表示
+    // slideElems[index].style.display = 'block'
+    slideElems[index].classList.remove('fadeOut')
+    slideElems[index].classList.add('fadeIn')
+  }
 }
 
 /* シークバーのアニメーション */
 const seekBar = (bar: HTMLDivElement, timer: number) => {
   const width = timer / 4 + 0.25
   // bar!.style.width = `${width}%`
+
   switch (slideCount) {
     case 0:
       if (beforeSlideCount >= 1) {
