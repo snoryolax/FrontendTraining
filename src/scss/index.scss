@@ -237,7 +237,7 @@ body {
         .fadeOut {
           animation: fadeOut 0.3s forwards;
         }
-        .seek {
+        .bar {
           &-container {
             display: flex;
             justify-content: space-between;
@@ -245,9 +245,9 @@ body {
             height: 4px;
             position: relative;
             top: -5px;
-            #seek01,
-            #seek02,
-            #seek03 {
+            #bar01,
+            #bar02,
+            #bar03 {
               position: relative;
               cursor: pointer;
               background-color: #f5f5f5;

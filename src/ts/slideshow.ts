@@ -1,16 +1,17 @@
+// 現在表示している画像のindex
 // 0→1→2→0→1→2...
 let slideCount: number = 0
 
+// 前回表示していた画像のindex
+// slideCountが更新されるとその値を代入
 let beforeSlideCount: number = 0
-
-let timer = 0
 
 /* スライドの枚数 */
 const SLIDE_NUM: number =
   document.getElementsByClassName('hero-container').length
 
 /* スライドの要素を取得 */
-const loadSlideElem = () => {
+const loadSlideElems = () => {
   const slideArray: HTMLDivElement[] = []
   for (let i = 0; i < SLIDE_NUM; i++) {
     slideArray.push(document.getElementById(`slide0${i + 1}`) as HTMLDivElement)
@@ -18,15 +19,13 @@ const loadSlideElem = () => {
   return slideArray
 }
 
-/* シークバーの要素を取得 */
-const loadSeekbarElem = () => {
-  const seekbarArray: HTMLDivElement[] = []
+/* バーの要素を取得 */
+const loadBarElems = () => {
+  const barArray: HTMLDivElement[] = []
   for (let i = 0; i < SLIDE_NUM; i++) {
-    seekbarArray.push(
-      document.getElementById(`seek0${i + 1}`) as HTMLDivElement
-    )
+    barArray.push(document.getElementById(`bar0${i + 1}`) as HTMLDivElement)
   }
-  return seekbarArray
+  return barArray
 }
 
 /* スライドを切り替え */
@@ -34,23 +33,22 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
   // 表示するスライドのインデックス
   const index = slideCount
 
+  // バーのクリック時に再生中の画像のバーをクリックしていないことを確認
+  // 初回のバーのクリック時にfadeInとfadeOutが発火する動作を防ぐ
   if (slideCount !== beforeSlideCount) {
     // すべてのスライドを非表示
     for (let i = 0; i < SLIDE_NUM; i++) {
-      // slideElems[i].style.display = 'none'
       slideElems[i].classList.remove('fadeIn')
       slideElems[i].classList.add('fadeOut')
     }
-
     // 特定のスライドのみを表示
-    // slideElems[index].style.display = 'block'
     slideElems[index].classList.remove('fadeOut')
     slideElems[index].classList.add('fadeIn')
   }
 }
 
-/* シークバーのアニメーション */
-const seekBar = (bar: HTMLDivElement, timer: number) => {
+/* バーのアニメーション */
+const setBar = (bar: HTMLDivElement, timer: number) => {
   const width = timer / 4 + 0.25
   // bar!.style.width = `${width}%`
 
@@ -89,13 +87,16 @@ const seekBar = (bar: HTMLDivElement, timer: number) => {
 /* スライドショーの実行 */
 const slideshow = (changeInterval: number) => {
   // スライドの要素を取得
-  const slideElems: HTMLDivElement[] = loadSlideElem()
+  const slideElems: HTMLDivElement[] = loadSlideElems()
   // シークバーの要素を取得
-  const seekbarElems: HTMLDivElement[] = loadSeekbarElem()
+  const barElems: HTMLDivElement[] = loadBarElems()
   // プログレスバーの要素を取得
   const bar: HTMLDivElement[] = document.querySelectorAll(
-    '.seek-container > div > div'
+    '.bar-container > div > div'
   )
+  // 1枚の画像の表示時間の管理
+  let timer = 0
+
   // プログレスバーの描画間隔
   const interval = 10
 
@@ -104,7 +105,7 @@ const slideshow = (changeInterval: number) => {
 
     // シークバーのクリックによるスライドの切り替え
     for (let i = 0; i < SLIDE_NUM; i++) {
-      seekbarElems[i]!.onclick = () => {
+      barElems[i]!.onclick = () => {
         beforeSlideCount = slideCount
         slideCount = i
         timer = 0
@@ -123,7 +124,7 @@ const slideshow = (changeInterval: number) => {
       }
       toggleSlide(slideCount, slideElems)
     }
-    seekBar(bar!, timer)
+    setBar(bar!, timer)
   }, interval)
 }
 
