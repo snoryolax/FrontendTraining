@@ -105,16 +105,7 @@ const slideshow = (changeInterval: number) => {
         beforeSlideCount = slideCount
         slideCount = i
         timer = 0
-        switch (seekbarElems[i].id) {
-          case 'seek01':
-            break
-          case 'seek02':
-            break
-          case 'seek03':
-            break
-          default:
-            break
-        }
+        toggleSlide(slideCount, slideElems)
       }
     }
 
