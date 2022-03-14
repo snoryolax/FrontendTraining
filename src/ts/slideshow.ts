@@ -4,7 +4,8 @@ let slideCount: number = 0
 
 // 前回表示していた画像のindex
 // slideCountが更新されるとその値を代入
-let beforeSlideCount: number = 0
+// 0以外であれば可
+let beforeSlideCount: number = -1
 
 /* スライドの枚数 */
 const SLIDE_NUM: number =
@@ -30,9 +31,6 @@ const loadBarElems = () => {
 
 /* スライドを切り替え */
 const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
-  // 表示するスライドのインデックス
-  const index = slideCount
-
   // バーのクリック時に再生中の画像のバーをクリックしていないことを確認
   // 初回のバーのクリック時にfadeInとfadeOutが発火する動作を防ぐ
   if (slideCount !== beforeSlideCount) {
@@ -41,42 +39,51 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
       slideElems[i].classList.remove('fadeIn')
       slideElems[i].classList.add('fadeOut')
     }
-    // 特定のスライドのみを表示
-    slideElems[index].classList.remove('fadeOut')
-    slideElems[index].classList.add('fadeIn')
+    // 該当する特定のスライドのみを表示
+    slideElems[slideCount].classList.remove('fadeOut')
+    slideElems[slideCount].classList.add('fadeIn')
   }
 }
 
 /* バーのアニメーション */
-const setBar = (bar: HTMLDivElement, timer: number) => {
-  const width = timer / 4 + 0.25
-  // bar!.style.width = `${width}%`
+const setBar = (bar: HTMLDivElement, barMax: number, timer: number) => {
+  // 各バーのwidth（0〜100）
+  const width = timer / barMax + 0.25
 
+  // slideCountによってバーの色をグリーンに変更
   switch (slideCount) {
     case 0:
+      // 2、3枚目を再生中に1枚目のバーをクリックした場合
+      // 2、3枚目のバーの色はホワイト
       if (beforeSlideCount >= 1) {
-        bar[1]!.style.width = `0%`
-        bar[2]!.style.width = `0%`
+        bar[1]!.style.width = '0%'
+        bar[2]!.style.width = '0%'
       }
       bar[0]!.style.width = `${width}%`
       break
     case 1:
+      // 1、3枚目を再生中に2枚目のバーをクリックした場合
+      // 1枚目のバーの色はグリーン
+      // 3枚目のバーの色はホワイト
       if (beforeSlideCount === 0 || beforeSlideCount === 2) {
-        bar[0]!.style.width = `100%`
-        bar[2]!.style.width = `0%`
+        bar[0]!.style.width = '100%'
+        bar[2]!.style.width = '0%'
       }
       bar[1]!.style.width = `${width}%`
       break
     case 2:
+      // 1、2枚目を再生中に3枚目のバーをクリックした場合
+      // 1、2枚目のバーの色はグリーン
       if (beforeSlideCount <= 1) {
-        bar[0]!.style.width = `100%`
-        bar[1]!.style.width = `100%`
+        bar[0]!.style.width = '100%'
+        bar[1]!.style.width = '100%'
       }
       bar[2]!.style.width = `${width}%`
       break
     default:
       break
   }
+  // 3枚目の再生が終わったら、すべてのバーの色をホワイトにする
   if (slideCount === 2 && width === 100) {
     for (let i = 0; i < SLIDE_NUM; i++) {
       bar[i]!.style.width = '0%'
@@ -94,11 +101,12 @@ const slideshow = (changeInterval: number) => {
   const bar: HTMLDivElement[] = document.querySelectorAll(
     '.bar-container > div > div'
   )
-  // 1枚の画像の表示時間の管理
-  let timer = 0
-
   // プログレスバーの描画間隔
   const interval = 10
+  // 1枚の画像の表示時間の管理
+  let timer = 0
+  // 各バーのwidth（0~100）をtimerから生成するための変数
+  const barMax = changeInterval / 1000
 
   setInterval(() => {
     timer += 1
@@ -113,8 +121,7 @@ const slideshow = (changeInterval: number) => {
       }
     }
 
-    // changeInterval(4000) / interval(10)
-    // if (timer === 400)
+    // timerによるスライドの切り替え
     if (timer === changeInterval / interval) {
       timer = 0
       slideCount++
@@ -124,7 +131,7 @@ const slideshow = (changeInterval: number) => {
       }
       toggleSlide(slideCount, slideElems)
     }
-    setBar(bar!, timer)
+    setBar(bar!, barMax, timer)
   }, interval)
 }
 
