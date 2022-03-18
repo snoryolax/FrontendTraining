@@ -2,13 +2,223 @@
 @use 'base';
 @use 'variable' as var;
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+body {
+  &.menu-active {
+    position: fixed;
+    top: 0;
+  }
+}
 .wrapper {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  header {
+    .header {
+      &-wrapper {
+        position: fixed;
+        top: 3.9rem;
+        right: 3vw;
+        z-index: 1;
+        font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 0.02em;
+      }
+      &-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.8rem;
+        &.menu-active {
+          a,
+          span {
+            opacity: 0.3;
+          }
+        }
+        .title {
+        }
+        .location {
+          display: flex;
+          align-items: center;
+          margin-left: 2.3rem;
+          &::before {
+            content: '';
+            display: block;
+            width: 2.3rem;
+            height: 0.1rem;
+            margin-right: 2.1rem;
+            background-color: #101010;
+          }
+        }
+        a {
+          color: var.$font-black;
+        }
+        button {
+          appearance: none;
+          border: none;
+          background: none;
+          svg {
+            position: relative;
+            top: 3px;
+            cursor: pointer;
+            .circle {
+              fill: #fff;
+              opacity: 0;
+              &.menu-active {
+                opacity: 1;
+              }
+            }
+            .dot {
+              fill: var.$header-button-blue;
+              &.menu-active {
+                fill: var.$header-button-green;
+              }
+            }
+            &:hover {
+              .dot {
+                fill: var.$header-button-orange;
+                &.menu-active {
+                  fill: var.$header-button-green;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   .container {
+    .menu {
+      &-wrapper {
+        display: none;
+        &.menu-active {
+          display: block;
+          height: 100vw;
+          animation: fadeIn 0.3s forwards;
+        }
+      }
+      &-container {
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var.$menu-bg;
+        figure {
+          position: relative;
+          width: 50%;
+          animation: fadeIn 0.6s forwards;
+          a {
+            position: relative;
+            height: 100%;
+            display: none;
+            &::before {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              display: block;
+              background: rgba(0, 0, 0, 0.2);
+              z-index: 1;
+            }
+            img {
+              object-fit: cover;
+              width: 100%;
+              height: 100%;
+            }
+            figcaption {
+              position: absolute;
+              bottom: 2.2rem;
+              display: block;
+              width: 100%;
+              text-align: center;
+              font-family: 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+              font-size: 1.2rem;
+              line-height: 1.5;
+              letter-spacing: 0.008em;
+              color: #ebebeb;
+            }
+            &.active {
+              display: block;
+            }
+          }
+          svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 23.8rem;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 2;
+            path {
+              fill: #fff;
+            }
+          }
+        }
+        .menu {
+          width: 50%;
+          padding: 9.8rem 8.7rem 0 0;
+          display: flex;
+          justify-content: flex-end;
+          line-height: 2;
+          font-size: 1.2rem;
+          letter-spacing: 0.04em;
+          font-family: "Suisse Int'l", 'A+EqpB-游ゴシック体 Pr6N R', sans-serif;
+          text-align: right;
+          a {
+            position: relative;
+            &.current-page {
+              &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -0.8vw;
+                transform: translateY(-50%);
+                display: block;
+                width: 0.4rem;
+                height: 0.4rem;
+                border-radius: 50%;
+                background-color: #2ca108;
+              }
+            }
+          }
+          .nav {
+            &-main {
+              font-size: 1.6rem;
+            }
+            &-sub {
+              margin-top: 2.8rem;
+            }
+            &-social {
+              margin-top: 2.8rem;
+            }
+          }
+        }
+      }
+    }
     .hero {
       &-wrapper {
         position: relative;
@@ -16,10 +226,51 @@
         overflow: hidden;
         #slide02,
         #slide03 {
-          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+        .fadeIn {
+          animation: fadeIn 0.3s forwards;
+        }
+        .fadeOut {
+          animation: fadeOut 0.3s forwards;
+        }
+        .bar {
+          &-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 4px;
+            position: relative;
+            top: -5px;
+            #bar01,
+            #bar02,
+            #bar03 {
+              position: relative;
+              cursor: pointer;
+              background-color: #f5f5f5;
+              width: calc((100% / 3) - 3px);
+              div {
+                top: 0px;
+                width: 0%;
+                background-color: #2ca108;
+                height: 4px;
+              }
+              &:hover {
+                top: -4px;
+                height: 8px;
+                div {
+                  height: 8px;
+                }
+              }
+            }
+          }
         }
       }
       &-container {
+        position: relative;
         .image {
           width: 100%;
           height: 100%;
@@ -94,6 +345,9 @@
                   width: 100%;
                   height: 100%;
                   object-fit: cover;
+                  &.lazyFadeIn {
+                    animation: fadeIn 1s forwards;
+                  }
                 }
               }
               h3 {
@@ -254,20 +508,12 @@
           width: 15.2rem;
           font-size: 1.6rem;
           line-height: 2;
-          a {
-            color: #333;
-            opacity: 0.7;
-          }
         }
       }
       .nav-sub {
         .top {
           width: 15.2rem;
           line-height: 2;
-        }
-        a {
-          color: #333;
-          opacity: 0.7;
         }
       }
     }
@@ -279,10 +525,6 @@
         display: flex;
         li {
           margin-left: 2rem;
-          a {
-            color: #333;
-            opacity: 0.7;
-          }
         }
       }
     }
