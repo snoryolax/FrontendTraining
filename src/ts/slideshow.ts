@@ -46,7 +46,7 @@ const toggleSlide = (slideCount: number, slideElems: HTMLDivElement[]) => {
 }
 
 /* バーのアニメーション */
-const setBar = (bar: HTMLDivElement, barMax: number, timer: number) => {
+const setBar = (bar: HTMLDivElement[], barMax: number, timer: number) => {
   // 各バーのwidth（0〜100）
   const width = timer / barMax + 0.25
 
@@ -98,8 +98,8 @@ const slideshow = (changeInterval: number) => {
   // シークバーの要素を取得
   const barElems: HTMLDivElement[] = loadBarElems()
   // プログレスバーの要素を取得
-  const bar: HTMLDivElement[] = document.querySelectorAll(
-    '.bar-container > div > div'
+  const bar: HTMLDivElement[] = Array.from(
+    document.querySelectorAll<HTMLDivElement>('.bar-container > div > div')
   )
   // プログレスバーの描画間隔
   const interval = 10
@@ -131,7 +131,7 @@ const slideshow = (changeInterval: number) => {
       }
       toggleSlide(slideCount, slideElems)
     }
-    setBar(bar!, barMax, timer)
+    setBar(bar, barMax, timer)
   }, interval)
 }
 
