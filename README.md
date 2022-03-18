@@ -31,7 +31,7 @@ npm run build
 ## デプロイ
 
 - main ブランチへの push で自動デプロイ
-- デプロイ先：https://ryopple.github.io/FrontendTraining/
+- デプロイ先：https://snoryolax.github.io/FrontendTraining/
 
 ## その他
 
